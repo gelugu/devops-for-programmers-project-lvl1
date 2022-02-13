@@ -2,8 +2,10 @@ version: "3.7"
 
 services:
   app:
+    image: "gelugu/devops-for-programmers-project-lvl1"
     build:
       context: .
+      dockerfile: Dockerfile.production
     volumes:
       - "./app:/app"
     command: bash -c "npm ci && npm test"
