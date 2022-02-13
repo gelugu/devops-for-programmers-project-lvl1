@@ -9,3 +9,12 @@ services:
     volumes:
       - "./app:/app"
     command: bash -c "npm ci && npm test"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
