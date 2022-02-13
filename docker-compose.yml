@@ -8,6 +8,11 @@ services:
       dockerfile: Dockerfile.production
     volumes:
       - "./app:/app"
+    environment:
+      DATABASE_HOST: db
+      DATABASE_NAME: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
     command: bash -c "npm ci && npm test"
     depends_on:
       - db
