@@ -2,10 +2,7 @@ name: push
 
 on:
   push:
-    branches:
-      - '**'
-    tags:
-      - '**'
+    branches: [ main ]
 
 jobs:
   test-and-push:
