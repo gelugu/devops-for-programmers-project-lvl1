@@ -25,8 +25,8 @@ make setup
   test: {
     dialect: 'postgres',
     database: process.env.DATABASE_NAME,
-    username: process.env.DATABASE_USERNAME,
-    password: process.env.DATABASE_PASSWORD,
+    username: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD,
     port: process.env.DATABASE_PORT,
     host: process.env.DATABASE_HOST,
   },
@@ -42,8 +42,8 @@ make env-prepare
 
 ```dotenv
 DATABASE_NAME=postgres
-DATABASE_USERNAME=postgres
-DATABASE_PASSWORD=postgres
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
 DATABASE_PORT=5432
 DATABASE_HOST=localhost
 ```
