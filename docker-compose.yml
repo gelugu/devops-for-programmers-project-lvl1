@@ -8,8 +8,6 @@ services:
       dockerfile: Dockerfile.production
     volumes:
       - "./app:/app"
-    env_file:
-      - ./app/.env.tests
     command: bash -c "npm ci && npm test"
     depends_on:
       - db
@@ -17,5 +15,6 @@ services:
   db:
     image: postgres:latest
     restart: always
-    env_file:
-      - ./app/.env.tests
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
