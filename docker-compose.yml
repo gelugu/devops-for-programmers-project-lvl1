@@ -9,12 +9,20 @@ services:
     volumes:
       - "./app:/app"
     command: bash -c "npm ci && npm test"
+    environment:
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
     depends_on:
       - db
 
   db:
     image: postgres:latest
     restart: always
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_USER: ${DATABASE_USERNAME}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
