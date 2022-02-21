@@ -18,6 +18,9 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Prepare enviroment
+        run: make prepare
+
       - name: Run tests
         run: make ci
 
